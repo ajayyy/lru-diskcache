@@ -7,7 +7,7 @@ export interface CacheOptions {
     onError?: (err: Error) => void,
 }
 
-export default class DiskCache<K extends string | Buffer | Stream, V> {
+export default class DiskCache<K extends string | Buffer | Stream, V extends string> {
 
     constructor(rootPath: string, options?: CacheOptions);
 
