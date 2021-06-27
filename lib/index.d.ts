@@ -7,7 +7,7 @@ export interface CacheOptions {
     onError?: (err: Error) => void,
 }
 
-export default class DiskCache<K extends string | Buffer | Stream, V extends string> {
+export default class DiskCache<K extends string, V extends string | Buffer | Stream> {
 
     constructor(rootPath: string, options?: CacheOptions);
 
@@ -20,7 +20,7 @@ export default class DiskCache<K extends string | Buffer | Stream, V extends str
     get(key: K, opts?: {encoding?: string}): V;
 
     // Returns size
-    set(key: K, dataOrSteam: V & Stream): Promise<number>;
+    set(key: K, dataOrSteam: V): Promise<number>;
 
     del(key: K): void;
 
