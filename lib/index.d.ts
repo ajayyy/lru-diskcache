@@ -17,7 +17,7 @@ export default class DiskCache<K, V> {
 
     has(key: string): boolean;
 
-    get(key: K, opts: {encoding?: string}): V;
+    get(key: K, opts?: {encoding?: string}): V;
 
     // Returns size
     set(key: K, dataOrSteam: V & Stream): Promise<number>;
