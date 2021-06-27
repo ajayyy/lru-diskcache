@@ -1,15 +1,15 @@
 import { Stream } from "stream";
 
 export interface CacheOptions {
-    max: number,
-    maxEntries: number | null,
-    maxAge: number | undefined,
-    onError: (err: Error) => void,
+    max?: number,
+    maxEntries?: number | null,
+    maxAge?: number | undefined,
+    onError?: (err: Error) => void,
 }
 
 export default class DiskCache<K, V> {
 
-    constructor(rootPath: string, options: CacheOptions);
+    constructor(rootPath: string, options?: CacheOptions);
 
     init(): void;
 
