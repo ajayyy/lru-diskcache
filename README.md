@@ -1,8 +1,8 @@
 # lru-diskcache
 
-Modified from GitbookIO lru-diskcache to fix npm audit issues. Test coverage is low on this, recommend using the original lru-diskcache.
+Modified from GitbookIO and ironflytech lru-diskcache to fix npm audit issues. 
 
-[![Build Status](https://travis-ci.org/GitbookIO/lru-diskcache.svg?branch=master)](https://travis-ci.org/GitbookIO/lru-diskcache)
+This also adds type definitions to be used in typescript.
 
 A disk cache object that deletes the least-recently-used items. Based on [lru-cache](https://github.com/isaacs/node-lru-cache).
 
@@ -11,7 +11,7 @@ A disk cache object that deletes the least-recently-used items. Based on [lru-ca
 ```js
 var LRU = require("lru-diskcache")
 
-var cache = LRU('./cache', {
+var cache = new LRU('./cache', {
     max: 50
 });
 
