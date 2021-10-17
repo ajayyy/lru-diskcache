@@ -4,6 +4,8 @@ Modified from GitbookIO and ironflytech lru-diskcache to fix npm audit issues.
 
 This also adds type definitions to be used in typescript.
 
+https://www.npmjs.com/package/@ajayyy/lru-diskcache
+
 A disk cache object that deletes the least-recently-used items. Based on [lru-cache](https://github.com/isaacs/node-lru-cache).
 
 ### Usage
