@@ -17,7 +17,7 @@ export default class DiskCache<K extends string, V extends string | Buffer | Str
 
     has(key: string): boolean;
 
-    get(key: K, opts?: {encoding?: string}): V;
+    get(key: K, opts?: {encoding?: string}): Promise<V>;
 
     // Returns size
     set(key: K, dataOrSteam: V): Promise<number>;
