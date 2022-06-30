@@ -20,26 +20,30 @@ describe('Diskcache', function() {
     var cache = createCache();
 
     describe('#set', function() {
-        it('should accept a string', function() {
-            return cache.set('test_string', 'hello');
+        it('should accept a string', async function() {
+            return await cache.set('test_string', 'hello');
         });
 
-        it('should accept a buffer', function() {
-            return cache.set('test_buffer', Buffer.from('hello', 'utf8'));
+        it('should accept a buffer', async function() {
+            return await cache.set('test_buffer', Buffer.from('hello', 'utf8'));
         });
 
-        it('should accept a strean', function() {
-            return cache.set('test_stream', fs.createReadStream(path.join(__dirname, '../package.json')));
+        it('should accept a strean', async function() {
+            return await cache.set('test_stream', fs.createReadStream(path.join(__dirname, '../package.json')));
         });
     });
 
     describe('#get', function() {
+        before('setup', (done) => {
+            cache.set('test_string_get', 'hello').then(() => done());
+        })
+
         it('should read as a buffer', function() {
-            return cache.get('test_string').should.be.finally.an.instanceof(Buffer);
+            return cache.get('test_string_get').should.be.finally.an.instanceof(Buffer);
         });
 
         it('should accept an encoding options', function() {
-            return cache.get('test_string', { encoding: 'utf8' }).should.be.finally.a.String;
+            return cache.get('test_string_get', { encoding: 'utf8' }).should.be.finally.a.String;
         });
     });
 
